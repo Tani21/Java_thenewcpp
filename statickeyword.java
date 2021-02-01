@@ -1,7 +1,7 @@
 class MyClass
 {
     static int i,j;
-    static int add(int a, int b)
+    static int MyClass(int a, int b)
     {
         i=a;
         j=b;
@@ -12,10 +12,17 @@ class MyClass
 
 public class Main
 {
+    static void hello()
+    {
+        System.out.println("Hello");
+    }
+    
 	public static void main(String[] args) {
 	    
 	    MyClass object = new MyClass();
-	     int result = object.add(4,5);
+	     int result = object.MyClass(4,5);
 		System.out.println(result);
+		
+		hello();
 	}
 }
