@@ -24,5 +24,11 @@ public class Main
 		System.out.println(result);
 		
 		hello();
+		
+		System.out.println("Using reference variable");
+		System.out.println("i: "+object.i+" "+"j: "+object.j);
+		System.out.println("Using class name");
+		System.out.println("i: "+MyClass.i+" "+"j: "+MyClass.j);
+		
 	}
 }
