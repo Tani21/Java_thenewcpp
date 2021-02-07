@@ -26,7 +26,7 @@ public class Main
 {
     public static void main (String[] args)
         {
-            System.out.println("Aggregation");
+            System.out.println("Passing object as parameter");
             System.out.println();
             
             Book object1 = new Book();
