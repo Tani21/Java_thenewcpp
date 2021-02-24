@@ -79,7 +79,7 @@ class ProjectManager extends Manager
     }
 }
 
-public class OverloadingandOverriding
+public class MethodOne
 {
 	public static void main(String[] args) {
 		Employee object = new Employee(100.0,200.0,300.0,400.0);
