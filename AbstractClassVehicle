@@ -1,0 +1,122 @@
+
+abstract class Vehicle
+{
+	abstract void accelerate();
+	abstract void SeatBooking();
+	
+}
+
+class Plane extends Vehicle
+{
+	int noOfPeople, age;
+	String typeOfTicket;
+	
+	Plane(int noOfPeople, int age, String typeOfTicket)
+	{ 
+		this.noOfPeople=noOfPeople;
+		this.age=age;
+		this.typeOfTicket=typeOfTicket;
+	}
+	public void accelerate()
+	{
+		System.out.println("Thrust is used for acceleration");
+	}
+	
+	public void SeatBooking()
+	{
+		if(typeOfTicket=="BusinessClass")
+		System.out.println("Welcome to business class");
+		else
+			System.out.println("Welcome");
+	}
+}
+
+class Bus extends Vehicle
+{
+	Bus(){}
+	
+	int NoOfPeople, Age;
+	Bus(int NoOfPeople, int Age)
+	{
+		this.NoOfPeople = NoOfPeople;
+		this.Age = Age;
+	}
+	
+	final int a=10;
+	
+	public void accelerate()
+	{
+		System.out.println("Accelerator is used to accelerate bus");
+	}
+	
+	public void SeatBooking()
+	{
+		if(Age>20)
+		System.out.println("Book a bus on RedBus");
+		
+		else
+			System.out.println("Book a bus on AbhiBus");
+	}
+	
+	final void TypeOfBus()
+	{
+		
+		if(a==1)
+		{
+			System.out.println("This is an AC bus");
+		}
+		else
+		{
+			System.out.println("This is a non AC bus");
+		}
+	}
+}
+
+final class Car extends Vehicle
+{
+	int noOfPeople;
+	
+	
+	Car(int noOfPeople )
+	{
+		this.noOfPeople = noOfPeople;
+	}
+	
+	public void accelerate()
+	{
+		System.out.println("Use car accelerator for acceleration");
+	}
+	
+	public void SeatBooking()
+	{
+		if(noOfPeople>6)
+		System.out.println("Book SUV using Ola or Uber");
+		else
+			System.out.println("Book any car");
+	}
+	
+}
+
+public class AbstractClassTwo {
+
+	public static void main(String[] args) {
+		Vehicle object = new Plane(3, 25, "BusinessClass");
+		object.accelerate();
+		object.SeatBooking();
+			
+		System.out.println();
+		
+		Bus newObject = new Bus(6, 25);
+		newObject.accelerate();
+		newObject.SeatBooking();
+		newObject.TypeOfBus();
+		
+		System.out.println();
+		
+		object = new Car(5);
+		object.accelerate();
+		object.SeatBooking();
+		
+	}
+
+}
