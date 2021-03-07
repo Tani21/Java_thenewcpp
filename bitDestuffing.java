@@ -1,4 +1,4 @@
-public class bitDestuffing
+public class MyCLass
 {
     
     public static String charRemoveAt(String str, int p) 
@@ -10,13 +10,12 @@ public class bitDestuffing
 		System.out.println("Code for bit destuffing");
 		System.out.println("Please enter string with flags using command line arguments");
 		
-	    String s1=args[0];    
+	    String s1=args[0];  
+	    System.out.println("string entered: "+s1);
         String startFlag = s1.substring(0,8); 
-        System.out.println(startFlag);  
-        String endFlag = s1.substring((s1.length()-8),s1.length());   
-        System.out.println(endFlag);    
+        String endFlag = s1.substring((s1.length()-8),s1.length());    
         String data = s1.substring(8,(s1.length()-8) );
-        System.out.println(data);
+        
         int flag=0;
         
         for(int i=0; i<data.length(); i++)
@@ -30,12 +29,14 @@ public class bitDestuffing
                     if(data.charAt(i+1)=='0')
                     {
                          data=charRemoveAt(data, i+1);  
-                         System.out.println(data);
+                         
                     }
                 }
             }
         }
         
-        System.out.println("Original string: "+startFlag+data+endFlag);
+        System.out.println("Original string after destuffing: "+startFlag+data+endFlag);
 	}
 }
+                   
+                 
