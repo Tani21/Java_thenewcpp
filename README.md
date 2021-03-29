@@ -2,7 +2,7 @@
 
 Java is the high-level, object-oriented, robust, secure programming language, platform-independent, high performance, Multithreaded, and portable programming language. It was developed by James Gosling in June 1991. It can also be known as the platform as it provides its own JRE and API.
 
-Simple: Java is easy to learn. The syntax of Java is based on C++ which makes easier to write the program in it.  
+Simple: Java is easy to learn. The syntax of Java is based on C++ which makes easier to write the program in it.
 
 Object-Oriented: Java follows the object-oriented paradigm which allows us to maintain our code as the combination of different type of objects that incorporates both data and behavior.
 
