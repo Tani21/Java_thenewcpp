@@ -1,134 +1,50 @@
-public class crc_two {
-	
-	static String appended(String a, String b)
-    {
-        int n = a.length();
-        String appendedstring=b;
-        for(int i=0; i<n-1; i++)
-        {
-            appendedstring=appendedstring+'0';
-        }
-        return appendedstring;
+importjava.io.*;
+classCRC {
+  staticStringdiv(Stringnum1, Stringnum2) {
+    intpointer = num2.length();
+    String res = num1.substring(0, pointer);
+    String rem = "";
+    for (inti = 0; i < num2.length(); i++) {
+      if (res.charAt(i) == num2.charAt(i)) {
+        rem = rem + "0";
+      } else {
+        rem = rem + "1";
+      }
     }
-	
-	public static String charRemoveAt(String str, int p) {  
-        return str.substring(0, p) + str.substring(p + 1);  
-     }  
-	
-	/*static String remainder(String a, String b)
-    {
-        int n = a.length();
-        String consideredstring = b.substring(0, n);
-        int diff = b.length() - a.length();
-        for(int i=n; i<diff; i++)
-        {
-            consideredstring =  b.substring(0, i);
-            String xor = Xor(a, consideredstring);
-            System.out.println(xor);
+    while (pointer < num1.length()) {
+      if (rem.charAt(0) == '0') {
+        rem = rem.substring(1, rem.length());
+        rem = rem + String.valueOf(num1.charAt(pointer));
+        pointer++;
+      }
+      res = rem;
+      rem = "";
+      for (inti = 0; i < num2.length(); i++) {
+        if (res.charAt(i) == num2.charAt(i)) {
+          rem += "0";
+        } else {
+          rem += "1";
         }
-        return consideredstring;
-    }*/
-	
-	static String Xor(String a, String consideredstring)
-    {
-        String xorstring="";
-        int n = a.length();
-        for(int i=0; i<n; i++)
-        {
-            if(a.charAt(i)==consideredstring.charAt(i))
-            {
-                xorstring = xorstring+'0';
-            }
-            
-            else
-            {
-                xorstring = xorstring+ '1';
-            }
-        }
-        return xorstring;
+      }
     }
-    
-	public static void main(String[] args) {
-		String divisor = "101";
-		int divisorlength = divisor.length();	
-		String dividend = "101101";
-		int dividendlength = dividend.length();
-		String quotient = "";
-		String finalconsiderstring = "";
-		
-		String appendededstring = appended(divisor, dividend); 
-		
-		//String remainderstring = remainder(divisor, appendededstring);
-		
-		int i=0;
-		int p=0;
-		String remainderxor="";
-		String considerstring = appendededstring.substring(0, i);
-		int length = considerstring.length();
-		
-	for(int k=0; k<dividendlength; k++)
-	{
-		for(int j=0; j<divisorlength-1; j++)
-		{
-			if(length < divisorlength)
-				{
-					i=i+1;
-					considerstring = appendededstring.substring(0, i);
-					
-				}
-			System.out.println("string that is considered"+considerstring);
-			
-			int c =considerstring.compareTo(divisor);
-			
-			if(c>0)
-			{
-				quotient=quotient+'1';
-				remainderxor = Xor(divisor, considerstring);
-				System.out.println("remainder after xor"+remainderxor);
-			}
-			
-			
-			
-			if(c==0)
-			{
-				quotient=quotient+'1';
-				remainderxor = Xor(divisor, considerstring);
-				System.out.println("remainder after zor: "+remainderxor);
-			}
-			
-			System.out.println("quotient: "+quotient);
-			System.out.println("j: "+j);
-			
-			considerstring = remainderxor;
-			int considerstringlength = considerstring.length();
-			for(int t=0; t<considerstringlength; t++) 
-			{
-				if(considerstring.charAt(t)=='0')
-				{
-					charRemoveAt(considerstring, t);
-				}
-			}
-			
-			finalconsiderstring = considerstring;
-			/*
-			if(c<0)
-			{
-				quotient=quotient+'0';
-				i=i+1;
-				considerstring = appendededstring.substring(0, i);
-				String remainderxor = Xor(divisor, considerstring);
-				System.out.println(remainderxor);
-			}*/
-			
-			
-			
-		}
-	}
-		
-		
-		
-		
-
-	}
-
+    returnrem.substring(1, rem.length());
+  }
+  publicstaticvoidmain(String args[]) throws IOException {
+    BufferedReader br = newBufferedReader(newInputStreamReader(System.in));
+    System.out.print(" Enter Generator: ");
+    String gen = br.readLine();
+    System.out.print(" Enter Data: ");
+    String data = br.readLine();
+    String code = data;
+    while (code.length() < (data.length() + gen.length() - 1)) code = code + "0";
+    code = data + div(code, gen);
+    System.out.println(" The transmitted code bitsare: " + code);
+    System.out.print(" Enter the received code bits:");
+    String rec = br.readLine();
+    if (Integer.parseInt(div(rec, gen)) == 0) {
+      System.out.println("\nThe received code bitscontains no errors.");
+    } else {
+      System.out.println("\nThe received code bitscontains errors. ");
+    }
+  }
 }
