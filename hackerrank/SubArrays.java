@@ -4,6 +4,8 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
+//tested app today
+
 class Calculation
 {
     void printSubArray(int arr[])
