@@ -1,0 +1,5 @@
+Query the average population for all cities in CITY, rounded down to the nearest integer.
+
+SELECT ROUND(AVG(POPULATION)) FROM CITY;
+
+// If you do not specify the number to which you want to round off after the decimal, then it will automatically round of to the nearest integer
