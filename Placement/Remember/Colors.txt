@@ -1,0 +1,4 @@
+60-30-10 rule
+Whenever we have to select a colour pallete, we should have a base colour which will cover 60% of the page, then the theme colour or primary colour of the app should 
+cover 30% of the app. rest of the 10% such as click me buttons should have the last colour.
+Thus, examples could be white blue and bluegreen
