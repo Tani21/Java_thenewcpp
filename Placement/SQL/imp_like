@@ -1,0 +1,1 @@
+SELECT DISTINCT CITY FROM STATION WHERE left(CITY, 1) in ('A','I','E','O','U') and right(city,1) in ('a','i','e','o','u') ;
